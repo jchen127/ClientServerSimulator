@@ -10,6 +10,8 @@ import { SearchComponent } from './search/search.component';
 import { PopularComponent } from './popular/popular.component';
 import { FooterComponent } from './footer/footer.component';
 
+import {WidthServiceService} from "./width-service.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,7 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [WidthServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

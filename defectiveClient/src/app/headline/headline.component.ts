@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadlineComponent implements OnInit {
 
-  constructor() { }
+  detainJuvenileText: string;
+  detentionFacilityText: string;
+
+  constructor() {
+    this.detentionFacilityText = 'Detention Facility';
+    this.detainJuvenileText = 'Detained Juvenile';
+
+  }
 
   ngOnInit(): void {
+
+
+
   }
 
 }

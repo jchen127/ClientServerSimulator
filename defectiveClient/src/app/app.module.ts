@@ -8,6 +8,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { NavigationSpaceComponent } from './navigation-space/navigation-space.component';
 import { SearchComponent } from './search/search.component';
 import { PopularComponent } from './popular/popular.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PopularComponent } from './popular/popular.component';
     NavigationComponent,
     NavigationSpaceComponent,
     SearchComponent,
-    PopularComponent
+    PopularComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

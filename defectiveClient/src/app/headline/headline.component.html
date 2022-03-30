@@ -1,25 +1,39 @@
 
 <div class="container-fluid shadow border-bottom border-dark bg-light d-flex justify-content-md-between justify-content-center align-items-center">
 
+
   <div class="d-flex">
     <div class="m-1 logo">
       <i class="fa-solid fa-shield-heart"></i><i class="fa-solid fa-children"></i><i class="fa-solid fa-child-reaching"></i><i class="fa-solid fa-hamsa"></i>
     </div>
 
-    <div class="headline_text" *ngIf="visibleIfGreaterThanXSWidth()">{{logoText}}</div>
+    <div class="headline_text" >{{logoText}}</div>
   </div>
 
-  <section>
-    <div class="d-flex">
-      <i class="fa-solid fa-handcuffs m-1"></i>
-      <div class="headline_text" *ngIf="visibleIfGreaterThanXSWidth()">{{detainJuvenileText}}</div>
-    </div>
 
-    <div class="d-flex">
-      <i class="fa-solid fa-building-shield m-1"></i>
-      <div class="headline_text" *ngIf="visibleIfGreaterThanXSWidth()">{{detentionFacilityText}}</div>
-    </div>
+  <section>
+
+
+    <article>
+      <!-- detention facilities -->
+      <div class="d-flex headline_text">
+        <!-- ico, this needs tooltip pop up. absolutely and the description will go to tooltip -->
+        <div [ngStyle]="GrayBorderFirstPill()" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top" class="tool_tip px-2 rounded-start">
+          <i class="fa-solid fa-building-shield"></i>
+        </div>
+
+        <!-- number -->
+        <div [ngStyle]="GrayBorderSecondPill()" [ngClass]="{'text-danger': detentionFacilityAvailable < 1, 'text-warning': detentionFacilityAvailable>0}" class="px-2 bg-white rounded-end" [innerText]="detentionFacilityAvailable">
+        </div>
+      </div>
+    </article>
+
+
+
   </section>
+
+
+
 
 
 

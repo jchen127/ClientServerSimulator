@@ -1,33 +1,59 @@
 
-<div class="container-fluid shadow border-bottom border-dark bg-light d-flex justify-content-md-between justify-content-center align-items-center">
+<div class="container-fluid shadow-sm bg-light d-flex flex-column flex-md-row justify-content-md-between justify-content-center align-items-center px-1 user-select-none" >
 
-
-  <div class="d-flex">
-    <div class="m-1 logo">
-      <i class="fa-solid fa-shield-heart"></i><i class="fa-solid fa-children"></i><i class="fa-solid fa-child-reaching"></i><i class="fa-solid fa-hamsa"></i>
+  <div class="d-flex justify-content-center" style="min-width:18em;">
+    <div class="px-1 logo">
+      <i class="fa-solid fa-shield-heart"></i><i class="fa-solid fa-children"></i><i class="fa-solid fa-child-reaching"></i>
     </div>
 
-    <div class="headline_text" >{{logoText}}</div>
+    <div class="headline_text">{{logoText}}</div>
   </div>
 
 
-  <section>
+  <section class="d-flex justify-content-center" style="min-width: 18em;" [ngClass]="{'py-2': showIfGreater768()== false}">
 
 
-    <article>
+    <article class="mx-2">
       <!-- detention facilities -->
       <div class="d-flex headline_text">
         <!-- ico, this needs tooltip pop up. absolutely and the description will go to tooltip -->
-        <div [ngStyle]="GrayBorderFirstPill()" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top" class="tool_tip px-2 rounded-start">
+        <div [ngStyle]="GrayBorderFirstPill()" placement="top" ngbTooltip="Available Facilities" class="px-2 rounded-start">
           <i class="fa-solid fa-building-shield"></i>
         </div>
 
         <!-- number -->
-        <div [ngStyle]="GrayBorderSecondPill()" [ngClass]="{'text-danger': detentionFacilityAvailable < 1, 'text-warning': detentionFacilityAvailable>0}" class="px-2 bg-white rounded-end" [innerText]="detentionFacilityAvailable">
+        <div [ngStyle]="GrayBorderSecondPill()" [ngClass]="{'text-danger': detentionFacilityAvailable < 1, 'text-warning': detentionFacilityAvailable>0}" class="px-2 bg-white rounded-end user-select-none" [innerText]="detentionFacilityAvailable">
         </div>
       </div>
     </article>
 
+    <article class="mx-2">
+      <!-- Staffs -->
+      <div class="d-flex headline_text">
+        <!-- ico, this needs tooltip pop up. absolutely and the description will go to tooltip -->
+        <div [ngStyle]="GrayBorderFirstPill()" placement="top" ngbTooltip="Available Staffs" class="px-2 rounded-start">
+          <i class="fa-solid fa-user-nurse m-1"></i>
+        </div>
+
+        <!-- number -->
+        <div [ngStyle]="GrayBorderSecondPill()" [ngClass]="{'text-danger': staffsAvailable < 1, 'text-warning': staffsAvailable>0 && staffsAvailable < 3, 'text-success': staffsAvailable > 2}" class="px-2 bg-white rounded-end user-select-none" [innerText]="staffsAvailable">
+        </div>
+      </div>
+    </article>
+
+    <article class="mx-2">
+      <!-- Juveniles -->
+      <div class="d-flex headline_text">
+        <!-- ico, this needs tooltip pop up. absolutely and the description will go to tooltip -->
+        <div [ngStyle]="GrayBorderFirstPill()" placement="top" ngbTooltip="Detained Juveniles" class="px-2 rounded-start">
+          <i class="fa-solid fa-children"></i>
+        </div>
+
+        <!-- number -->
+        <div [ngStyle]="GrayBorderSecondPill()" [ngClass]="{'text-danger': juvenileDetained < 1, 'text-success': juvenileDetained>0}" class="px-2 bg-white rounded-end user-select-none" [innerText]="juvenileDetained">
+        </div>
+      </div>
+    </article>
 
 
   </section>

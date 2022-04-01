@@ -12,6 +12,12 @@ import { FooterComponent } from './footer/footer.component';
 
 import {WidthServiceService} from "./width-service.service";
 
+
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import {ResizeDirective} from "./headline/HeaderDirectives/resize.directive";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +26,13 @@ import {WidthServiceService} from "./width-service.service";
     NavigationSpaceComponent,
     SearchComponent,
     PopularComponent,
-    FooterComponent
+    FooterComponent,
+    ResizeDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [WidthServiceService],
   bootstrap: [AppComponent]

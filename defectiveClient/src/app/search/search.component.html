@@ -11,7 +11,8 @@
 
     <div style="min-width: 30em; max-width: 30em; position:relative">
 
-      <input class="rounded-start border border-secondary form-control" placeholder="Search for staff, juvenile or facility"  />
+      <input class="rounded-start border border-secondary form-control" placeholder="Search for staff, juvenile or facility" [(ngModel)]="acceptedSearchTerm"
+      />
 
       <div class="d-flex align-items-center" style="position:absolute; top:10px; right:10px;">
         <i class="fa-solid fa-magnifying-glass"></i>
@@ -19,8 +20,20 @@
 
     </div>
 
-
   </div>
+
+  <!-- Two Way Binding of search term -->
+  <div style="min-height: 2em;" [ngClass]="{'text-center text-success': true}" *ngIf="searchTermFilterFunction(); else redAcceptance">
+
+    {{acceptedSearchTerm}}
+  </div>
+
+  <ng-template #redAcceptance>
+    <div style="min-height: 2em;" [ngClass]="{'text-center text-danger': true}">
+
+      {{acceptedSearchTerm}}
+    </div>
+  </ng-template>
 
   <div class="d-flex justify-content-center mt-3" style="min-width: 30em;">
 

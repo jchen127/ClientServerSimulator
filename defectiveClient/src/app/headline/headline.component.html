@@ -1,12 +1,12 @@
 
 <div class="container-fluid shadow-sm bg-light d-flex flex-column flex-md-row justify-content-md-between justify-content-center align-items-center px-1 user-select-none" >
 
-  <div class="d-flex justify-content-center" style="min-width:18em;">
-    <div class="px-1 logo">
+  <div class="d-flex justify-content-center" (click)="LogoTextAway()" style="min-width:18em;">
+    <div class="px-1 logo" >
       <i class="fa-solid fa-shield-heart"></i><i class="fa-solid fa-children"></i><i class="fa-solid fa-child-reaching"></i>
     </div>
 
-    <div class="headline_text">{{logoText}}</div>
+    <div class="headline_text" [hidden]="hoverHidden" >{{logoText}}</div>
   </div>
 
 

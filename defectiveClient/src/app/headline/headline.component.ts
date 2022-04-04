@@ -22,6 +22,8 @@ export class HeadlineComponent implements OnInit, OnDestroy {
 
   curWinSize: number = screen.width;
 
+  hoverHidden: boolean;
+
   constructor(private windowService: WidthServiceService) {
     this.detentionFacilityText = 'Detention Facility';
     this.detainJuvenileText = 'Detained Juvenile';
@@ -30,10 +32,15 @@ export class HeadlineComponent implements OnInit, OnDestroy {
     this.juvenileDetained = 0;
     this.detentionFacilityAvailable = 0;
     this.staffsAvailable = 0;
-
+    this.hoverHidden = false;
 
   }
 
+  LogoTextAway(): void{
+    console.log(`LogoText Away Entered: ${this.hoverHidden}`);
+    this.hoverHidden = !this.hoverHidden;
+
+  }
 
   @HostListener('window:resize') onWindowResize(eventData: Event): void{
 

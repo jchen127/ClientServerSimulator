@@ -16,6 +16,7 @@ import {WidthServiceService} from "./width-service.service";
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 import {ResizeDirective} from "./headline/HeaderDirectives/resize.directive";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -29,11 +30,12 @@ import {ResizeDirective} from "./headline/HeaderDirectives/resize.directive";
     FooterComponent,
     ResizeDirective
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        FormsModule
+    ],
   providers: [WidthServiceService],
   bootstrap: [AppComponent]
 })

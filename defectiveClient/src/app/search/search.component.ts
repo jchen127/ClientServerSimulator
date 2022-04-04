@@ -7,7 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  acceptedSearchTerm: string = '';
+  searchTermFiltered: boolean = true;
+
+  constructor() {
+
+
+
+  }
+
+  searchTermFilterFunction(): boolean{
+
+
+    if(this.acceptedSearchTerm.length%2 == 0){
+      this.searchTermFiltered = true;
+    }else{
+      this.searchTermFiltered = false;
+    }
+
+    return this.searchTermFiltered;
+
+  }
 
   ngOnInit(): void {
   }

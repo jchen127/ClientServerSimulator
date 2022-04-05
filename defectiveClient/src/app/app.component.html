@@ -1,7 +1,7 @@
 
 <app-headline></app-headline>
 
-<app-navigation></app-navigation>
+<app-navigation [item]="currentItem"  (newItemEvent)="parentSays($event)"></app-navigation>
 
 <app-navigation-space></app-navigation-space>
 
@@ -25,5 +25,7 @@
       <td>xx xx</td> <td>xx xx</td> <td>xx xx</td> <td>xx xx</td> <td>xx xx</td> <td>xx xx</td>
     </tr>
   </table>
+
+
 
 </div>

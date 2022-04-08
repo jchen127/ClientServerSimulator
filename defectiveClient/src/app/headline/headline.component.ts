@@ -27,7 +27,7 @@ export class HeadlineComponent implements OnInit, OnDestroy {
   constructor(private windowService: WidthServiceService) {
     this.detentionFacilityText = 'Detention Facility';
     this.detainJuvenileText = 'Detained Juvenile';
-    this.logoText = 'Department of Juvenile Service';
+    this.logoText = 'Juvenile Service Simulator';
     this.staffText = "Available Staffs";
     this.juvenileDetained = 0;
     this.detentionFacilityAvailable = 0;

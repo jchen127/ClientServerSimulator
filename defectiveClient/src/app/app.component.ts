@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   title = 'defectiveClient';
 
@@ -15,6 +16,12 @@ export class AppComponent {
     console.log(`parent(app.root) got something from child(navigation.component) ${newItem}`);
   }
 
+  ngOnInit(){
+
+
+
+
+  }
 
 
 }

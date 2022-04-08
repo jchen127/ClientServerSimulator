@@ -5,9 +5,24 @@
 
 <app-navigation-space></app-navigation-space>
 
+<div class="container-fluid row row-cols-md-2 row-cols-1">
+
+  <div class=" border border-dark" style="min-width: 25em; min-height: 11em;">
+
+    <!-- some input component from navigation menu dropdown -->
+    <router-outlet></router-outlet>
+
+  </div>
+
+  <div class="border border-dark" style="min-width: 25em; min-height: 11em;">
+    <app-search></app-search>
+  </div>
 
 
-<app-search></app-search>
+
+</div>
+
+
 
 <app-popular></app-popular>
 

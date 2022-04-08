@@ -4,28 +4,28 @@
 <div class="d-flex justify-content-center" style="min-width: 18em;">
 
 
-  <div class="bg-light border-start border-end border-bottom small px-3 shadow-sm position-relative" (click)="RotateJuvenile()" >
+  <div class="bg-light small px-3 shadow-sm position-relative" (click)="RotateJuvenile()" >
 
-    <div class="d-flex position-absolute" style="top:-2.8em; left:-1.8em;" (mouseleave)="closeJuvenile()" [ngClass]="{'d-none': juvenile_dropdown === false, 'd-block': juvenile_dropdown === true}" >
-      <div class="bg-light border-start  small px-3 cursorDD">Intake Juvenile</div>
-      <div class="bg-light border-start  small px-3 cursorDD">Detain Juvenile</div>
-      <div class="bg-light border-start  small px-3 cursorDD">Adjudicate Juvenile</div>
-      <div class="bg-light border-start border-end small px-3 cursorDD">Release Juvenile</div>
+    <div class="d-flex position-absolute" style="top:-3.2em; left:-1.8em;" (mouseleave)="closeJuvenile(); closeStaff(); CloseFacility()" [ngClass]="{'d-none': juvenile_dropdown === false, 'd-block': juvenile_dropdown === true}" >
+      <div class="bg-light  small px-3 cursorDD" routerLink="/intakeJ">Intake Juvenile</div>
+      <div class="bg-light  small px-3 cursorDD" routerLink="/pooper">Detain Juvenile</div>
+      <div class="bg-light  small px-3 cursorDD">Adjudicate Juvenile</div>
+      <div class="bg-light small px-3 cursorDD">Release Juvenile</div>
     </div>
 
-    <div class="cursorDD">
+    <div class="cursorDD" appBetterToggleStaff [someStuffFromBetter]="juvenile_dropdown">
       Juvenile
     </div>
 
   </div>
 
-  <div class="bg-light border-start border-end border-bottom small px-3 shadow-sm position-relative" (click)="RotateStaff()">
+  <div class="bg-light small px-3 shadow-sm position-relative" (click)="RotateStaff()" >
 
-    <div class="d-flex position-absolute" style="top:-2.8em; left:-1.8em;" (mouseleave)="closeStaff()" >
-      <div class="bg-light border-start  small px-3">Recruit Staff</div>
-      <div class="bg-light border-start  small px-3">Detain Staff</div>
-      <div class="bg-light border-start  small px-3">Train Staff</div>
-      <div class="bg-light border-start border-end small px-3" #newItem>Release Staff</div>
+    <div class="d-flex position-absolute" style="top:-3.2em; left:-1.8em;" (mouseleave)="closeJuvenile(); closeStaff(); CloseFacility()" [ngClass]="{'d-none': staff_dropdown === false, 'd-block': staff_dropdown === true}">
+      <div class="bg-light  small px-3 cursorDD">Recruit Staff</div>
+      <div class="bg-light  small px-3 cursorDD">Detain Staff</div>
+      <div class="bg-light  small px-3 cursorDD">Train Staff</div>
+      <div class="bg-light  small px-3 cursorDD" #newItem>Release Staff</div>
     </div>
 
     <div class="cursorDD" (click)="addStaffEmitter(newItem.innerText)">
@@ -34,32 +34,50 @@
 
   </div>
 
-  <div class="bg-light border-start border-end border-bottom small px-3 shadow-sm position-relative">
+  <div class="bg-light small px-3 shadow-sm position-relative" (click)="RotateFacility()" >
 
-    <div class="d-flex position-absolute d-none" style="top:-2.8em; left:-1.8em;">
+    <div class="d-flex position-absolute" style="top:-3.2em; left:-1.8em;" (mouseleave)="closeJuvenile(); closeStaff(); CloseFacility()" [ngClass]="{'d-none': facility_dropdown === false, 'd-block': facility_dropdown === true}">
 
-      <div class="bg-light border-start  small px-3">Build Facility</div>
-      <div class="bg-light border-start  small px-3">Abandon Facility</div>
-      <div class="bg-light border-start  small px-3">Repair Facility</div>
+      <div class="bg-light cursorDD small px-3">Build Facility</div>
+      <div class="bg-light cursorDD small px-3">Abandon Facility</div>
+      <div class="bg-light cursorDD small px-3">Repair Facility</div>
 
     </div>
 
-
-
-    <div class="cursorDD">
+    <div class="cursorDD" >
       {{item}}
     </div>
 
   </div>
 
-  <div class="bg-light border-start border-end border-bottom small px-3 shadow-sm">
+  <div class="bg-light border-start border-end border-bottom small px-3 shadow-sm"
+       appToggleStaff [ngbPopover]="popContent" [popoverTitle]="popTitle" [autoClose]="false"
+       triggers="manual" #gearPop="ngbPopover" triggers="click:click" placement="bottom">
 
-
-    <div class="cursorDD">
-      <i class="fa-solid fa-gears"></i>
+    <div >
+      <i class="fa-solid fa-gears"  ></i>
     </div>
 
+    <ng-template #popContent>
 
+      <div class="d-flex flex-column justify-content-center" (mouseleave)="gearPop.close()">
+
+
+          <input class="form-control mb-2" type="text" placeholder="User Name" >
+
+          <input class="form-control mb-2" type="password" placeholder="Password" >
+          <button mat-raised-button>Login</button>
+
+
+      </div>
+
+
+
+    </ng-template>
+
+    <ng-template #popTitle>
+      <b class="text-center">Authentication</b>
+    </ng-template>
 
   </div>
 

@@ -30,6 +30,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DetainJuvenileComponent } from './detain-juvenile/detain-juvenile.component';
 import { JudicateJuvenileComponent } from './judicate-juvenile/judicate-juvenile.component';
 import { ReleaseJuvenileComponent } from './release-juvenile/release-juvenile.component';
+import { RecruitStaffComponent } from './recruit-staff/recruit-staff.component';
+import { DetainStaffComponent } from './detain-staff/detain-staff.component';
+import { TrainStaffComponent } from './train-staff/train-staff.component';
+import { ReleaseStaffComponent } from './release-staff/release-staff.component';
+import { BuildFacilityComponent } from './build-facility/build-facility.component';
+import { AbandonFacilityComponent } from './abandon-facility/abandon-facility.component';
+import { RepairFacilityComponent } from './repair-facility/repair-facility.component';
 
 
 
@@ -53,7 +60,14 @@ import { ReleaseJuvenileComponent } from './release-juvenile/release-juvenile.co
     NotFoundComponent,
     DetainJuvenileComponent,
     JudicateJuvenileComponent,
-    ReleaseJuvenileComponent //no longer used
+    ReleaseJuvenileComponent,
+    RecruitStaffComponent,
+    DetainStaffComponent,
+    TrainStaffComponent,
+    ReleaseStaffComponent,
+    BuildFacilityComponent,
+    AbandonFacilityComponent,
+    RepairFacilityComponent
   ],
     imports: [
         BrowserModule,

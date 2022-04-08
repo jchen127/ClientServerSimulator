@@ -29,9 +29,6 @@ export class Medicine{
    */
   GenerateHtmlFragment(): void{
 
-
-
-
   }
 
 }

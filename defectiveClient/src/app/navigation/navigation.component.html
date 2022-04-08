@@ -8,9 +8,9 @@
 
     <div class="d-flex position-absolute" style="top:-3.2em; left:-1.8em;" (mouseleave)="closeJuvenile(); closeStaff(); CloseFacility()" [ngClass]="{'d-none': juvenile_dropdown === false, 'd-block': juvenile_dropdown === true}" >
       <div class="bg-light  small px-3 cursorDD" routerLink="/intakeJ">Intake Juvenile</div>
-      <div class="bg-light  small px-3 cursorDD" routerLink="/pooper">Detain Juvenile</div>
-      <div class="bg-light  small px-3 cursorDD">Adjudicate Juvenile</div>
-      <div class="bg-light small px-3 cursorDD">Release Juvenile</div>
+      <div class="bg-light  small px-3 cursorDD" routerLink="/detainJ">Detain Juvenile</div>
+      <div class="bg-light  small px-3 cursorDD" routerLink="/judicateJ">Adjudicate Juvenile</div>
+      <div class="bg-light small px-3 cursorDD" routerLink="/releaseJ">Release Juvenile</div>
     </div>
 
     <div class="cursorDD" appBetterToggleStaff [someStuffFromBetter]="juvenile_dropdown">
@@ -22,10 +22,10 @@
   <div class="bg-light small px-3 shadow-sm position-relative" (click)="RotateStaff()" >
 
     <div class="d-flex position-absolute" style="top:-3.2em; left:-1.8em;" (mouseleave)="closeJuvenile(); closeStaff(); CloseFacility()" [ngClass]="{'d-none': staff_dropdown === false, 'd-block': staff_dropdown === true}">
-      <div class="bg-light  small px-3 cursorDD">Recruit Staff</div>
-      <div class="bg-light  small px-3 cursorDD">Detain Staff</div>
-      <div class="bg-light  small px-3 cursorDD">Train Staff</div>
-      <div class="bg-light  small px-3 cursorDD" #newItem>Release Staff</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="GoToRecruitStaff()">Recruit Staff</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="GoToDetainStaff()">Detain Staff</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="GoToTrainStaff()">Train Staff</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="GoToReleaseStaff()" #newItem>Release Staff</div>
     </div>
 
     <div class="cursorDD" (click)="addStaffEmitter(newItem.innerText)">
@@ -38,9 +38,9 @@
 
     <div class="d-flex position-absolute" style="top:-3.2em; left:-1.8em;" (mouseleave)="closeJuvenile(); closeStaff(); CloseFacility()" [ngClass]="{'d-none': facility_dropdown === false, 'd-block': facility_dropdown === true}">
 
-      <div class="bg-light cursorDD small px-3">Build Facility</div>
-      <div class="bg-light cursorDD small px-3">Abandon Facility</div>
-      <div class="bg-light cursorDD small px-3">Repair Facility</div>
+      <div class="bg-light cursorDD small px-3" (click)="GoToBuildFacility()">Build Facility</div>
+      <div class="bg-light cursorDD small px-3" (click)="GoToAbandonFacility()">Abandon Facility</div>
+      <div class="bg-light cursorDD small px-3" (click)="GoToRepairFacility()">Repair Facility</div>
 
     </div>
 
@@ -76,7 +76,10 @@
     </ng-template>
 
     <ng-template #popTitle>
-      <b class="text-center">Authentication</b>
+      <div class="d-flex justify-content-center">
+        <i>Authentication</i>
+      </div>
+
     </ng-template>
 
   </div>

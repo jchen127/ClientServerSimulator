@@ -1,4 +1,5 @@
 import {Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 enum Agent{
 
@@ -53,13 +54,53 @@ export class NavigationComponent implements OnInit {
 */
   @Input() item = '';
 
-  constructor() { }
+  constructor(private router: Router, private activeRouteInfo: ActivatedRoute) {
+
+
+  }
 
   ngOnInit(): void {
 
 
 
   }
+
+  GoToDetainStaff(): void{
+
+    this.router.navigate(['/detainS']);
+
+  }
+
+  GoToRecruitStaff(): void{
+
+    this.router.navigate(['/recruitS']);
+
+  }
+
+  GoToReleaseStaff():void{
+
+    this.router.navigate(['/releaseS']);
+
+  }
+
+  GoToTrainStaff(): void{
+
+    this.router.navigate(['/trainS']);
+
+  }
+
+  GoToAbandonFacility(){
+      this.router.navigate(['abandonF']);
+  }
+
+  GoToBuildFacility(){
+    this.router.navigate(['buildF']);
+  }
+
+  GoToRepairFacility(){
+    this.router.navigate(['repairF']);
+  }
+
 
   RotateFacility(): boolean {
     this.backgroundColor = 'blue'; //useless code that don't do anything but demonstrates host binding

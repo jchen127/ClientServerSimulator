@@ -7,15 +7,15 @@ Description: description of this staff
 
 Age: age of this staff
 
-Staff Proficient Category: category of work staff is proficient at. (this can impact criminality or kindness rating)
+Proficiency Score [+ or - after each action towards juvenile if success]: category of work staff is proficient at. (this can impact criminality or kindness rating)
 
-Criminality Rating: staff with higher criminality tends to punish the juvenile more often. This rating has a good chance of decrease if given more training. (0 - 100)
+Criminality Rating [fixed cannot change, except with drug or killing]: staff with higher criminality tends to punish the juvenile more often. This rating has a good chance of decrease if given more training. (0 - 100)
 
-Kindness Rating: staff with higher kindness rating tends to rehabilitate juvenile more often.  This rating has a small chance of increase if given more training. (0 - 100)
+Kindness Rating [fixed cannot change]: staff with higher kindness rating tends to rehabilitate juvenile more often.  This rating has a small chance of increase if given more training. (0 - 100)
 
-Intelligence Rating: staff with higher intelligence rating tends to have more success with juvenile. This rating is fixed and cannot be increase or decreased with training. (0 - 100)
+Intelligence Rating [fixed cannot change]: staff with higher intelligence rating tends to have more success with juvenile. This rating is fixed and cannot be increase or decreased with training. (0 - 100)
 
-Deed Score: past deed score of staff can amplify criminality or kindness rating (-100 to 100)
+Deed Score [successful or failure on punish or rehab will + or - the score]: past deed score of staff can amplify criminality or kindness rating (-100 to 100)
 
 ##Staff Recruiting
 Staff can be recruited but qualifications of staff generated can be random. Staff can only be recruited when certain time lapsed as to avoid massive staff recruitment drive.

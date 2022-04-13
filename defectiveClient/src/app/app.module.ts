@@ -15,11 +15,11 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { NavigationSpaceComponent } from './navigation-space/navigation-space.component';
 import { SearchComponent } from './search/search.component';
 import { PopularComponent } from './popular/popular.component';
-import { FooterComponent } from './footer/footer.component';
 import { IntakeJuvenileComponent } from './intake-juvenile/intake-juvenile.component';
 
 /*Services*/
 import {WidthServiceService} from "./width-service.service";
+import {LoggingService} from "./Shared/Services/Logging.service";
 
 /*Directives*/
 import {ToggleStaff} from "./navigation/DropdownDirectives/togglestaff.directive";
@@ -37,10 +37,7 @@ import { ReleaseStaffComponent } from './release-staff/release-staff.component';
 import { BuildFacilityComponent } from './build-facility/build-facility.component';
 import { AbandonFacilityComponent } from './abandon-facility/abandon-facility.component';
 import { RepairFacilityComponent } from './repair-facility/repair-facility.component';
-
-
-
-
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -51,7 +48,6 @@ import { RepairFacilityComponent } from './repair-facility/repair-facility.compo
     NavigationSpaceComponent,
     SearchComponent,
     PopularComponent,
-    FooterComponent,
     ToggleStaff,
     BetterToggleStaff,
     ToggleAnotherStaffDirective,
@@ -67,7 +63,8 @@ import { RepairFacilityComponent } from './repair-facility/repair-facility.compo
     ReleaseStaffComponent,
     BuildFacilityComponent,
     AbandonFacilityComponent,
-    RepairFacilityComponent
+    RepairFacilityComponent,
+    FooterComponent
   ],
     imports: [
         BrowserModule,
@@ -75,10 +72,10 @@ import { RepairFacilityComponent } from './repair-facility/repair-facility.compo
         NgbModule,
         FormsModule,
         BrowserAnimationsModule,
-        MatButtonModule,
+        MatButtonModule
 
     ],
-  providers: [WidthServiceService],
+  providers: [WidthServiceService, LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

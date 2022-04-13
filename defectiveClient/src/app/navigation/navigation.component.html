@@ -4,13 +4,13 @@
 <div class="d-flex justify-content-center" style="min-width: 18em;">
 
 
-  <div class="bg-light small px-3 shadow-sm position-relative" (click)="RotateJuvenile()" >
+  <div class="bg-light small px-3 shadow-sm position-relative" (click)="RotateJuvenile()"  >
 
     <div class="d-flex position-absolute" style="top:-3.2em; left:-1.8em;" (mouseleave)="closeJuvenile(); closeStaff(); CloseFacility()" [ngClass]="{'d-none': juvenile_dropdown === false, 'd-block': juvenile_dropdown === true}" >
-      <div class="bg-light  small px-3 cursorDD" routerLink="/intakeJ">Intake Juvenile</div>
-      <div class="bg-light  small px-3 cursorDD" routerLink="/detainJ">Detain Juvenile</div>
-      <div class="bg-light  small px-3 cursorDD" routerLink="/judicateJ">Adjudicate Juvenile</div>
-      <div class="bg-light small px-3 cursorDD" routerLink="/releaseJ">Release Juvenile</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="onIntakeSelected()"  routerLink="/intakeJ">Intake Juvenile</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="OnDetainSelected()" routerLink="/detainJ">Detain Juvenile</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="OnActionSelected('---', 'Adjudicate Juvenile', 'Click', '---', '---')" routerLink="/judicateJ">Adjudicate Juvenile</div>
+      <div class="bg-light small px-3 cursorDD" (click)="OnActionSelected('---', 'Release Juvenile', 'Click', '---', '---')" routerLink="/releaseJ">Release Juvenile</div>
     </div>
 
     <div class="cursorDD" appBetterToggleStaff [someStuffFromBetter]="juvenile_dropdown">
@@ -44,7 +44,7 @@
 
     </div>
 
-    <div class="cursorDD" >
+    <div class="cursorDD"  >
       {{item}}
     </div>
 

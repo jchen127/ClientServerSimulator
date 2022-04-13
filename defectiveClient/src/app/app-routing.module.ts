@@ -8,7 +8,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { NavigationSpaceComponent } from './navigation-space/navigation-space.component';
 import { SearchComponent } from './search/search.component';
 import { PopularComponent } from './popular/popular.component';
-import { FooterComponent } from './footer/footer.component';
 
 //Juvenile
 import { IntakeJuvenileComponent } from './intake-juvenile/intake-juvenile.component';
@@ -45,7 +44,7 @@ const routes: Routes = [
   {path: 'buildF', component: BuildFacilityComponent},
   {path: 'repairF', component: RepairFacilityComponent},
 
-  {path: '**', redirectTo: 'not-found'}
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

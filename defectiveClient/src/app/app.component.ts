@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-
+import {LoggingService} from './Shared/Services/Logging.service';
+import {logModel} from "./Shared/Log.Model";
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit{
 
+
+  logSave: logModel[] = [];
+
   title = 'defectiveClient';
 
   currentItem = "Facility";
+
+  constructor(){
+
+  }
 
   parentSays(newItem: string){
     console.log(`parent(app.root) got something from child(navigation.component) ${newItem}`);
@@ -18,10 +26,9 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
 
-
-
-
   }
+
+
 
 
 }

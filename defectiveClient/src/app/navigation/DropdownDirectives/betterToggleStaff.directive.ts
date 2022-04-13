@@ -35,7 +35,7 @@ export class BetterToggleStaff implements OnInit{
   @HostListener('mouseenter')
   AnotherBraveHero(){
 
-    console.log(`Fumbling for more grumbling SomeStuffFromBetter is from shit to ${this.someStuffFromBetter}`);
+    console.log(`Fumbling for more grumbling SomeStuffFromBetter is from mumble to ${this.someStuffFromBetter}`);
 
   }
 

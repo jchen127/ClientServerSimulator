@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoggingService} from "../Shared/Services/Logging.service";
 
 @Component({
   selector: 'app-detain-juvenile',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetainJuvenileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private logServe: LoggingService ) {
+
+    /*
+    * This is a sample logging service call with dummy data
+    * */
+
+
+
+  }
 
   ngOnInit(): void {
+
+
+
   }
+
+
 
 }

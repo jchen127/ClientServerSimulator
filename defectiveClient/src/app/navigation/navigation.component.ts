@@ -1,5 +1,7 @@
 import {Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {LoggingService} from "../Shared/Services/Logging.service";
+import {logModel} from "../Shared/Log.Model";
 
 enum Agent{
 
@@ -54,16 +56,49 @@ export class NavigationComponent implements OnInit {
 */
   @Input() item = '';
 
-  constructor(private router: Router, private activeRouteInfo: ActivatedRoute) {
+  /***
+   * Specifically, only when IntakeJuvenile is clicked.
+   */
+  onIntakeSelected(){
+    console.log("onIntakeSelected Entered...");
+    this.log.serviceChanged.emit(this.log.addIntakeLogService());
+  }
+
+  /***
+   * Specifically, only when DetainJuvenile is clicked.
+   * @constructor
+   */
+  OnDetainSelected(){
+    console.log("onDetainSelected Entered...");
+    this.log.subjectServiceChanged.next(this.log.addDetainLogService());
+  }
+
+  /***
+   * Specifically, when an action is clicked on navigation menu...
+   * @constructor
+   */
+  OnActionSelected(facility: string, action: string, result: string, staff?: string, juvenile?: string){
+
+      console.log("onActionSelected Entered");
+      this.log.subjectActionServiceChanged.next(this.log.UpdateAppHistoryFooter(facility, action, result, staff, juvenile));
+
+  }
+
+  constructor(private router: Router, private activeRouteInfo: ActivatedRoute, public log: LoggingService) {
 
 
   }
+
+
 
   ngOnInit(): void {
 
 
 
   }
+
+
+
 
   GoToDetainStaff(): void{
 
@@ -105,7 +140,7 @@ export class NavigationComponent implements OnInit {
   RotateFacility(): boolean {
     this.backgroundColor = 'blue'; //useless code that don't do anything but demonstrates host binding
     this.facility_dropdown = !this.facility_dropdown;
-    console.log(`rotate juvenile is: ${this.facility_dropdown}`);
+
     if(this.facility_dropdown === true){
       this.close(Agent.Building);
     }else{
@@ -118,7 +153,7 @@ export class NavigationComponent implements OnInit {
   CloseFacility(): boolean{
     this.backgroundColor = 'transparent'; //useless code that don't do anything but demonstrates host binding
     this.facility_dropdown = false;
-    console.log(`close juvenile is: ${this.facility_dropdown}`);
+
 
 
     return this.facility_dropdown;
@@ -140,7 +175,7 @@ export class NavigationComponent implements OnInit {
   closeJuvenile(): boolean{
 
     this.juvenile_dropdown = false;
-    console.log(`close juvenile is: ${this.juvenile_dropdown}`);
+
 
 
 
@@ -151,7 +186,7 @@ export class NavigationComponent implements OnInit {
   RotateStaff(): boolean{
 
     this.staff_dropdown = !this.staff_dropdown;
-    //console.log(`rotate staff is: ${this.staff_dropdown}`);
+
     if(this.staff_dropdown === true){
       this.close(Agent.Staff);
     }else{
@@ -165,7 +200,7 @@ export class NavigationComponent implements OnInit {
 
   closeStaff(): boolean{
     this.staff_dropdown = false;
-    console.log(`rotate staff is: ${this.staff_dropdown}`);
+
 
 
     return this.staff_dropdown;

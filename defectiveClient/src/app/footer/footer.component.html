@@ -1,0 +1,17 @@
+<div class="px-2">
+
+
+
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>Timestamp </th> <th>Facility</th> <th>Action</th> <th>Staff</th> <th>Juvenile</th> <th>Result</th>
+    </tr>
+    <tr *ngFor="let singleLog of curLog;">
+
+      <td>{{singleLog.time}}</td> <td>{{singleLog.facility}}</td> <td>{{singleLog.action}} </td> <td>{{singleLog.staff}} </td> <td>{{singleLog.juvenile}} </td> <td>{{singleLog.result}} </td>
+    </tr>
+  </table>
+
+
+
+</div>

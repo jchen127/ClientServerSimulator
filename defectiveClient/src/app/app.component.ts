@@ -1,22 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {LoggingService} from './Shared/Services/Logging.service';
 import {logModel} from "./Shared/Log.Model";
+import {corelogicService} from "./Shared/Services/corelogic.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy{
 
 
   logSave: logModel[] = [];
-
   title = 'defectiveClient';
-
   currentItem = "Facility";
+  EventAdderInterval: any;
 
-  constructor(){
+  constructor(private core: corelogicService){
 
   }
 
@@ -25,6 +25,15 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
+    //Event adder gets called when the app first start...
+    this.EventAdderInterval = this.core.coreEventAdder();
+
+  }
+
+  ngOnDestroy(): void {
+
+    clearInterval(this.EventAdderInterval);
+
 
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoggingService} from "../Shared/Services/Logging.service";
 
 @Component({
   selector: 'app-search',
@@ -10,9 +11,17 @@ export class SearchComponent implements OnInit {
   acceptedSearchTerm: string = '';
   searchTermFiltered: boolean = true;
 
-  constructor() {
+  constructor(private log: LoggingService) {
 
 
+
+  }
+
+  OnSearch(): void{
+
+    this.log.subjectActionServiceChanged.next(
+        this.log.UpdateAppHistoryFooter('---','Search','Click','---', '---' )
+    );
 
   }
 

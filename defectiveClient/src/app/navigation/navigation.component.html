@@ -22,10 +22,10 @@
   <div class="bg-light small px-3 shadow-sm position-relative" (click)="RotateStaff()" >
 
     <div class="d-flex position-absolute" style="top:-3.2em; left:-1.8em;" (mouseleave)="closeJuvenile(); closeStaff(); CloseFacility()" [ngClass]="{'d-none': staff_dropdown === false, 'd-block': staff_dropdown === true}">
-      <div class="bg-light  small px-3 cursorDD" (click)="GoToRecruitStaff()">Recruit Staff</div>
-      <div class="bg-light  small px-3 cursorDD" (click)="GoToDetainStaff()">Detain Staff</div>
-      <div class="bg-light  small px-3 cursorDD" (click)="GoToTrainStaff()">Train Staff</div>
-      <div class="bg-light  small px-3 cursorDD" (click)="GoToReleaseStaff()" #newItem>Release Staff</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="GoToRecruitStaff();OnActionSelected('---', 'Recruit Staff', 'Click', '---', '---')">Recruit Staff</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="GoToDetainStaff();OnActionSelected('---', 'Detain Staff', 'Click', '---', '---')">Detain Staff</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="GoToTrainStaff();OnActionSelected('---', 'Train Staff', 'Click', '---', '---')">Train Staff</div>
+      <div class="bg-light  small px-3 cursorDD" (click)="GoToReleaseStaff();OnActionSelected('---', 'Release Staff', 'Click', '---', '---')" #newItem>Release Staff</div>
     </div>
 
     <div class="cursorDD" (click)="addStaffEmitter(newItem.innerText)">
@@ -38,9 +38,9 @@
 
     <div class="d-flex position-absolute" style="top:-3.2em; left:-1.8em;" (mouseleave)="closeJuvenile(); closeStaff(); CloseFacility()" [ngClass]="{'d-none': facility_dropdown === false, 'd-block': facility_dropdown === true}">
 
-      <div class="bg-light cursorDD small px-3" (click)="GoToBuildFacility()">Build Facility</div>
-      <div class="bg-light cursorDD small px-3" (click)="GoToAbandonFacility()">Abandon Facility</div>
-      <div class="bg-light cursorDD small px-3" (click)="GoToRepairFacility()">Repair Facility</div>
+      <div class="bg-light cursorDD small px-3" (click)="GoToBuildFacility();OnActionSelected('---', 'Build Facility', 'Click', '---', '---')">Build Facility</div>
+      <div class="bg-light cursorDD small px-3" (click)="GoToAbandonFacility();OnActionSelected('---', 'Abandon Facility', 'Click', '---', '---')">Abandon Facility</div>
+      <div class="bg-light cursorDD small px-3" (click)="GoToRepairFacility();OnActionSelected('---', 'Repair Facility', 'Click', '---', '---')">Repair Facility</div>
 
     </div>
 
@@ -54,7 +54,7 @@
        appToggleStaff [ngbPopover]="popContent" [popoverTitle]="popTitle" [autoClose]="false"
        triggers="manual" #gearPop="ngbPopover" triggers="click:click" placement="bottom">
 
-    <div >
+    <div (click)="OnActionSelected('---', 'Login', 'Click', '---', '---')">
       <i class="fa-solid fa-gears"  ></i>
     </div>
 

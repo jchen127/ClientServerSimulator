@@ -1,22 +1,21 @@
 <div class="text-warning mt-2 ms-2 user-select-none mb-2">
   <i class="fa-solid fa-child-reaching">Detain Juvenile</i>
 </div>
-<form>
+<form (ngSubmit)="onDetain(f)" #f='ngForm'>
 
 
   <div class="d-flex justify-content-center mb-2">
-    <input type="text" class="form-control" placeholder="Juvenile Id" style="min-width: 10em; max-width: 20em;">
+    <input type="text" class="form-control" placeholder="Juvenile Id" style="min-width: 10em; max-width: 20em;" ngModel name="juvenile_id" required>
 
   </div>
 
   <div class="d-flex justify-content-center mb-2">
-    <input type="text" class="form-control" placeholder="Reason" style="min-width: 10em; max-width: 20em;">
+    <input type="text" class="form-control" placeholder="Reason" style="min-width: 10em; max-width: 20em;" ngModel name="reason" required email>
 
   </div>
 
   <div class="d-flex justify-content-center">
-
-    <button mat-raised-button>Detain NOW!</button>
+    <button mat-raised-button type="submit" [disabled]="f.valid">Detain NOW!</button>
   </div>
 
 </form>

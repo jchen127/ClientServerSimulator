@@ -1,5 +1,11 @@
 
-
+export enum EmotionScore{
+  Angry,
+  Uncooperative,
+  Content,
+  Cooperative,
+  Friendly
+}
 
 export enum PersonStatus{
   Dead,
@@ -30,7 +36,7 @@ export class JuvenileModel{
               public age: number,
               public delinquencyScore: number,
               public HitPoint: number,
-              public emotionalScore: number,
+              public emotionalScore: EmotionScore,
               public currentStatus: PersonStatus,
               public imageSrc: string
               ) {

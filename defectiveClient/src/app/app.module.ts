@@ -20,6 +20,7 @@ import { IntakeJuvenileComponent } from './intake-juvenile/intake-juvenile.compo
 /*Services*/
 import {WidthServiceService} from "./width-service.service";
 import {LoggingService} from "./Shared/Services/Logging.service";
+import {corelogicService} from "./Shared/Services/corelogic.service";
 
 /*Directives*/
 import {ToggleStaff} from "./navigation/DropdownDirectives/togglestaff.directive";
@@ -75,7 +76,7 @@ import { FooterComponent } from './footer/footer.component';
         MatButtonModule
 
     ],
-  providers: [WidthServiceService, LoggingService],
+  providers: [WidthServiceService, LoggingService, corelogicService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

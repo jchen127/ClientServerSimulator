@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import {WidthServiceService} from "../width-service.service";
+import {corelogicService} from "../Shared/Services/corelogic.service";
 
 
 @Component({
@@ -24,14 +25,14 @@ export class HeadlineComponent implements OnInit, OnDestroy {
 
   hoverHidden: boolean;
 
-  constructor(private windowService: WidthServiceService) {
+  constructor(private windowService: WidthServiceService, private coreService: corelogicService) {
     this.detentionFacilityText = 'Detention Facility';
     this.detainJuvenileText = 'Detained Juvenile';
     this.logoText = 'Juvenile Service Simulator';
     this.staffText = "Available Staffs";
-    this.juvenileDetained = 0;
-    this.detentionFacilityAvailable = 0;
-    this.staffsAvailable = 0;
+    this.juvenileDetained = coreService.juveniles.length;
+    this.detentionFacilityAvailable = coreService.facilities.length;
+    this.staffsAvailable = coreService.staffs.length;
     this.hoverHidden = false;
 
   }

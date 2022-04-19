@@ -11,7 +11,7 @@ export class IntakeJuvenileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log('Juvenile intake entered!');
+
 
   }
 

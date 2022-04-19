@@ -1,23 +1,43 @@
 <div class="text-warning mt-2 ms-2 user-select-none mb-2">
   <i class="fa-solid fa-gavel">Release Juvenile</i>
 </div>
-<form>
+<form [formGroup]="juvenileReleaseForm" (ngSubmit)="releaseSubmit()">
+
 
 
   <div class="d-flex justify-content-center mb-2">
-    <input type="text" class="form-control" placeholder="Juvenile Id" style="min-width: 10em; max-width: 20em;">
+
+    <label class="d-flex me-2 align-items-center">Juvenile Victim:</label>
+    <input formControlName="_juvenile_id" type="text" class="form-control" placeholder="Juvenile ID" style="min-width: 10em; max-width: 20em;">
 
   </div>
 
+  <label>Staff Who Recommends:</label>
+  <div class="d-flex justify-content-center mb-2" formArrayName="_staff_ids">
+    <div>
+      <div *ngFor="let staffControl of getStaffsArray(); let i = index">
+
+        <input type="text" class="form-control" [formControlName]="i" >
+
+      </div>
+      <button mat-stroked-button type="button" (click)="OnAddStaff()">Add Recommending Staff</button>
+    </div>
+
+
+
+
+
+
+  </div>
 
   <div class="d-flex justify-content-center mb-2">
-    <input type="text" class="form-control" placeholder="Reason" style="min-width: 10em; max-width: 20em;">
+    <input type="text" class="form-control" formControlName="_reason_for_release" placeholder="Reason" style="min-width: 10em; max-width: 20em;">
 
   </div>
 
   <div class="d-flex justify-content-center">
 
-    <button mat-raised-button>File Petition</button>
+    <button mat-raised-button type="submit">File Petition</button>
   </div>
 
 </form>

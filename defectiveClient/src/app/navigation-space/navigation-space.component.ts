@@ -27,7 +27,7 @@ export class NavigationSpaceComponent implements OnInit {
 
     //wait 10 seconds for eventAdd to get a head start...
     setTimeout(() => {
-      console.log('starts SetTimeout() in NavigationSpace...');
+      console.log('Initializing NavigationSpace...');
       this.coreService.coreEventRunner().subscribe(
         (result: EventModel) => {
          //

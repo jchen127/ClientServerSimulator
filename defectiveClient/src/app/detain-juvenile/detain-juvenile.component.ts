@@ -9,9 +9,11 @@ import {NgForm} from "@angular/forms";
 })
 export class DetainJuvenileComponent implements OnInit {
 
-//@ViewChild('f') form: NgForm | undefined;
+@ViewChild('f') form: NgForm | undefined;
 
   disabledValue: boolean | undefined;
+  myDefaultJuvenileId = '0';
+  reasoning: string = '';
 
   constructor(private logServe: LoggingService) {
 
@@ -22,13 +24,15 @@ export class DetainJuvenileComponent implements OnInit {
   }
 
   onDetainYea(form: NgForm){
-
+      console.log("onDetainYea form...");
+      console.log(form);
   }
 
   onDetain(form: NgForm){
 
     console.log("sign up form is here");
     console.log(form);
+
   }
 
   ngOnInit(): void {

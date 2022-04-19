@@ -2,22 +2,42 @@
 
   <i class="fa-solid fa-person-shelter">Detain Staff</i>
 </div>
-<form>
-
-
-  <div class="d-flex justify-content-center mb-2">
-    <input type="text" class="form-control" placeholder="Staff Id" style="min-width: 10em; max-width: 20em;">
-
-  </div>
+<form (ngSubmit)="onSubmit(ds)" #ds='ngForm'>
 
   <div class="d-flex justify-content-center mb-2">
-    <input type="text" class="form-control" placeholder="Reason" style="min-width: 10em; max-width: 20em;">
+    <div>
+      <div class="d-flex flex-column justify-content-center mb-2" ngModelGroup="userData" #userData="ngModelGroup">
 
+        <input type="text" class="form-control" placeholder="Staff Id" style="min-width: 10em; max-width: 20em;" id="staff" name="staff" ngModel required >
+
+
+        <input type="text" class="form-control" placeholder="Reason" style="min-width: 10em; max-width: 20em;" id="detain" name="detain" ngModel required >
+
+      </div>
+
+      <div>
+        <input type="text" class="form-control" placeholder="Additional Comments" style="min-width: 10em; max-width: 20em;" id="additional" name="additional" ngModel>
+      </div>
+    </div>
+
+
+    <mat-divider class="mx-4" vertical ></mat-divider>
+
+    <div class="small" >
+      <div>Staff ID: {{staffToBeDetained.staff}}</div>
+      <div>Reason for Detention: {{staffToBeDetained.detain}}</div>
+      <div>Additional Comments: {{staffToBeDetained.additional}}</div>
+    </div>
   </div>
+
+
+
 
   <div class="d-flex justify-content-center">
 
-    <button mat-raised-button>Detain NOW!</button>
+    <button mat-raised-button class="me-2">Detain NOW!</button>
+    <button mat-raised-button (click)="suggestUsernameViaPatch(ds)">Recommend Staff Detention</button>
+
   </div>
 
 </form>

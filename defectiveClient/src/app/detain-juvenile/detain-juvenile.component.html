@@ -5,15 +5,13 @@
 
 
   <div class="d-flex justify-content-center mb-2">
-    <input type="text" class="form-control" placeholder="Juvenile Id" style="min-width: 10em; max-width: 20em;" ngModel name="juvenile_id" required>
+    <input type="text" class="form-control" placeholder="Juvenile Id" style="min-width: 10em; max-width: 20em;" [ngModel]="myDefaultJuvenileId" name="juvenile_id" required>
+
+
+    <input type="text" class="form-control" placeholder="Reason" style="min-width: 10em; max-width: 20em;" [(ngModel)]="reasoning" name="reason" required email>
 
   </div>
-
-  <div class="d-flex justify-content-center mb-2">
-    <input type="text" class="form-control" placeholder="Reason" style="min-width: 10em; max-width: 20em;" ngModel name="reason" required email>
-
-  </div>
-
+  <div class="text-center">Provided Reason: {{reasoning}}</div>
   <div class="d-flex justify-content-center">
     <button mat-raised-button type="submit" [disabled]="f.valid">Detain NOW!</button>
   </div>

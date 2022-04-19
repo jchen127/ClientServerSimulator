@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatDividerModule} from '@angular/material/divider';
 
 
 /*Components*/
@@ -72,9 +72,10 @@ import { FooterComponent } from './footer/footer.component';
         AppRoutingModule,
         NgbModule,
         FormsModule,
+        ReactiveFormsModule,
         BrowserAnimationsModule,
-        MatButtonModule
-
+        MatButtonModule,
+        MatDividerModule
     ],
   providers: [WidthServiceService, LoggingService, corelogicService],
   bootstrap: [AppComponent]

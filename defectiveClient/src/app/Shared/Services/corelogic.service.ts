@@ -6,8 +6,8 @@ import {EventEmitter, Injectable} from "@angular/core";
 import {Observable, Subject} from "rxjs";
 import {EventModel} from "../event.model";
 import {ActionModel, myAction} from "../Action.model";
-import {error} from "protractor";
 import {LoggingService} from "./Logging.service";
+
 
 @Injectable()
 export class corelogicService{
@@ -58,7 +58,6 @@ export class corelogicService{
    *   businessNotorietyRating: number = 50;
    */
   private coreEventGenerator(): EventModel {
-    console.log("Entered Core Event Generator()... ");
 
     //we do nothing if facility length is 0 as it is empty...
     if(this.facilities.length === 0)
@@ -172,7 +171,7 @@ export class corelogicService{
      */
     this.staffs.push(new StaffModel('Joseph', 'male',
       'Joseph is a former convict who has a history of child abuse and sexual assault. He was arrested multiple times on child endangerment charges.',
-      46,75, 40, 50, 5, 50,PersonStatus.Healthy, `/assets/images/staff/s15.svg`,36)
+      46,75, 40, 50, 5, 50,PersonStatus.Healthy, `/assets/images/staff/s8.svg`,36)
     );
 
     this.staffs.push(new StaffModel('Greg', 'male',

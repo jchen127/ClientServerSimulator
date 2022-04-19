@@ -1,11 +1,11 @@
 <!--<section class="border border-dark" style="min-height: 8em;"> -->
-<section class="d-flex flex-md-row flex-column border-top border-bottom border-warning my-3" style="min-height: 12em;">
+<section class="d-flex flex-md-row flex-column border-bottom border-light my-3 shadow" style="min-height: 12em;">
 <!--TODO Status badges needs to be implemented -->
 
  <!-- This is The TV part of the app.  -->
   <div class="col-md-3 d-flex justify-content-center align-items-center">
 
-      <img [src]="staffImageAsset" style="max-height: 8em;"/>
+      <img [src]="staffImageAsset" style="max-height: 14em;"/>
 
   </div>
   <div class="col-md-6 d-flex flex-column" >
@@ -14,22 +14,26 @@
     <div class="d-flex">
       <div>{{staffName}}</div>
       <div class="mx-1" *ngIf="actionToPerform.length > 0">attempts to</div>
-      <div>{{actionToPerform}} {{juvenileName}}</div>
-
+      <div class="me-1" [ngStyle]="{'color': actionToPerform.toLocaleLowerCase() === 'punish'? 'red' : 'green'}">{{actionToPerform}}</div>
+      <div>{{juvenileName}}</div>
     </div>
 
     <div class="d-flex justify-content-center my-2">
-      <img [src]="actionImageAsset" style="max-height: 9em; min-width: 55%;" >
+      <img [src]="actionImageAsset" class="shadow p-1 border-dark border" style="max-height: 14em; min-width: 65%;" >
     </div>
 
     <div class="d-flex flex-row-reverse">
-      <div class="mx-2" *ngIf="actionToPerform.length > 0 ">{{actionToPerform}} {{result}}</div>
+      <div class="d-flex">
+        <div class="mx-2" *ngIf="actionToPerform.length > 0 " [ngStyle]="{'color': actionToPerform.toLocaleLowerCase() === 'punish'? 'red' : 'green'}">{{actionToPerform}}</div>
+        <div [ngClass]="{'text-danger': result.toLocaleLowerCase()=== 'failure', ' text-success': result.toLocaleLowerCase()==='success'}">{{result}}</div>
+      </div>
+
     </div>
 
   </div>
   <div class="col-md-3 d-flex justify-content-center align-items-center">
 
-    <img [src]="juvenileImageAsset" style="max-height: 8em;"/>
+    <img [src]="juvenileImageAsset" style="max-height: 14em;"/>
 
   </div>
 

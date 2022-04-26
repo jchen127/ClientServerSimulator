@@ -1,0 +1,75 @@
+{
+  "name": "staff",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "number": {
+      "type": "number"
+    },
+    "criminalityScore": {
+      "type": "number",
+      "required": true
+    },
+    "kindnessScore": {
+      "type": "number",
+      "required": true
+    },
+    "intelligence": {
+      "type": "number"
+    },
+    "deedScore": {
+      "type": "number",
+      "required": true
+    },
+    "proficiencyScore": {
+      "type": "number"
+    },
+    "currentStatus": {
+      "type": "number"
+    },
+    "imageSrc": {
+      "type": "string"
+    },
+    "salary": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

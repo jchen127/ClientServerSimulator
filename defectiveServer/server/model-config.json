@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "detentionDb",
+    "public": true
   },
   "AccessToken": {
     "dataSource": "db",
@@ -34,5 +35,21 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "staff": {
+    "dataSource": "detentionDb",
+    "public": true
+  },
+  "medicine": {
+    "dataSource": "detentionDb",
+    "public": true
+  },
+  "juvenile": {
+    "dataSource": "detentionDb",
+    "public": true
+  },
+  "facility": {
+    "dataSource": "detentionDb",
+    "public": true
   }
 }

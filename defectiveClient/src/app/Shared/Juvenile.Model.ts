@@ -8,9 +8,10 @@ export enum EmotionScore{
 }
 
 export enum PersonStatus{
-  Dead,
+  Dead=-1,
   Injured,
-  Healthy
+    hurt,
+    Healthy
 }
 
 /**

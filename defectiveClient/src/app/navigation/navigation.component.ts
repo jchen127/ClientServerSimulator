@@ -1,7 +1,10 @@
-import {Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {LoggingService} from "../Shared/Services/Logging.service";
 import {logModel} from "../Shared/Log.Model";
+import {FormControl, NgForm, Validators} from "@angular/forms";
+import {UserService} from "../Shared/Services/user.service";
+import {corelogicService} from "../Shared/Services/corelogic.service";
 
 enum Agent{
 
@@ -18,11 +21,124 @@ enum Agent{
 
 })
 export class NavigationComponent implements OnInit {
+  constructor(private router: Router, private activeRouteInfo: ActivatedRoute, public log: LoggingService, private userService: UserService, private core: corelogicService) {}
+  ngOnInit(): void {
+
+  }
 
   @HostBinding('style.backgroundColor') backgroundColor: string = "transparent"; //useless code that don't do anything but demonstrates host binding
 
   juvenile_dropdown: boolean = false;
   staff_dropdown: boolean = false;
+
+
+  @ViewChild("loginform") formLogin: NgForm | undefined;
+  @ViewChild("logoutForm") formLogout: NgForm | undefined;
+
+  loggedIn = false;
+  email="";
+  password="";
+
+
+  /***
+   * Validate user input first.
+   * @constructor
+   */
+  PreScreen(): boolean{
+
+    if(this.email.length <= 1 ){
+      console.log("email length is less than 1");
+      this.ClearEmailAndPasswordField();
+      return false;
+    }
+
+    let validationResult = Validators.email(new FormControl(this.email))?.email;
+    if(validationResult === true){
+      //validation failed. we do nothing
+      console.error("email validation failed.")
+      this.ClearEmailAndPasswordField();
+      return false;
+    }
+
+    return true;
+  }
+
+  OnLogin(){
+    console.log("OnLogin(): " + this.formLogin);
+    console.log(`Username: ${this.email} Password: ${this.password}`);
+
+    if(this.PreScreen() === false){
+      return;
+    }
+
+    let validationResult = Validators.email(new FormControl(this.email))?.email;
+    if(validationResult === undefined){
+      //do login here now that validation result is fine
+      this.userService.LoginUser(this.email, this.password).subscribe(
+
+        data => {
+
+       //  console.log("Logging in user(): " + JSON.stringify(data));
+      //    console.log( "id is: " + (<{"id": string, "ttl":number, "created":string, "userId":string}>data).id);
+
+          this.userService.setSecurityToken((<{"id": string, "ttl":number, "created":string, "userId":string}>data).id);
+          this.userService.setUserName(this.email);
+          this.userService.setPassword(this.password);
+          this.loggedIn = true;
+
+          console.log("security token from userservice is: " + this.userService.getSecurityToken());
+
+          //check to generate juveniles pool on the server
+          this.core.JuvenileNumGreaterThan100();
+
+
+        },
+        error => {
+        //  console.log("logging in error(): " + JSON.stringify(error));
+          this.ClearEmailAndPasswordField();
+
+        }
+
+      );
+    }
+
+
+  }
+
+  OnLogout(form: NgForm){
+    console.log("OnLogout():" + form);
+    this.loggedIn = false;
+    this.ClearEmailAndPasswordField();
+    this.userService.clearUserService();
+  }
+
+  OnRegister(): void{
+    console.log("OnRegister()" + this.formLogin);
+    console.log(`Username: ${this.email} Password: ${this.password}`);
+
+    if(this.PreScreen() === false){
+       return;
+    }
+
+    let validationResult = Validators.email(new FormControl(this.email))?.email;
+    if(validationResult === undefined){
+      //validation success
+      this.userService.RegisterUser(this.email, this.password).subscribe(
+        x => {console.log(x);},
+        y => {
+          alert(y.error.error.message);
+
+        });
+    }
+    this.ClearEmailAndPasswordField();
+    //this.userService.RegisterUser(this.email, this.password).subscribe(x => console.log(x));
+
+  }
+
+  private ClearEmailAndPasswordField(){
+    this.email = "";
+    this.password = "";
+  }
 
 /*
   @HostListener("newItemEvent")
@@ -56,6 +172,8 @@ export class NavigationComponent implements OnInit {
 */
   @Input() item = '';
 
+
+
   /***
    * Specifically, only when IntakeJuvenile is clicked.
    */
@@ -84,21 +202,19 @@ export class NavigationComponent implements OnInit {
 
   }
 
-  constructor(private router: Router, private activeRouteInfo: ActivatedRoute, public log: LoggingService) {
 
 
+
+
+
+  GoToLogin(): void{
+    console.log("go to login clicked");
+    this.router.navigate(["navigation", "login"]);
   }
 
-
-
-  ngOnInit(): void {
-
-
-
+  GoToRegister(): void{
+    this.router.navigate(["navigation", "register"]);
   }
-
-
-
 
   GoToDetainStaff(): void{
 
@@ -224,6 +340,10 @@ export class NavigationComponent implements OnInit {
       //close all if agent is not any of those
 
     }
+
+  }
+
+  RegisterUser(){
 
   }
 

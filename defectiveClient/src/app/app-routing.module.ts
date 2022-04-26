@@ -27,9 +27,16 @@ import {BuildFacilityComponent} from './build-facility/build-facility.component'
 import {RepairFacilityComponent} from './repair-facility/repair-facility.component';
 
 import {NotFoundComponent} from './not-found/not-found.component'
+import {NavigationsigninComponent} from "./navigation/NavigationComponents/navigationsignin/navigationsignin.component";
+import {
+  NavigationregisterComponent
+} from "./navigation/NavigationComponents/navigationregister/navigationregister.component";
+import {AuthenticateComponent} from "./navigation/authenticate/authenticate.component";
 
 
 const routes: Routes = [
+
+  {path: '', component: NotFoundComponent},
   {path: 'intakeJ', component: IntakeJuvenileComponent},
   {path: 'detainJ', component: DetainJuvenileComponent},
   {path: 'releaseJ', component: ReleaseJuvenileComponent},
@@ -43,6 +50,7 @@ const routes: Routes = [
   {path: 'abandonF', component: AbandonFacilityComponent},
   {path: 'buildF', component: BuildFacilityComponent},
   {path: 'repairF', component: RepairFacilityComponent},
+
 
   {path: '**', component: NotFoundComponent}
 ];
